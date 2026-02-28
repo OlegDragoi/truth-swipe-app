@@ -37,12 +37,7 @@ const Index = () => {
           storedAnswer: article.truthfulness,
         });
       } else {
-        setModal({
-          open: true,
-          correct: true,
-          explanation: "",
-          storedAnswer: article.truthfulness,
-        });
+        setCurrentIndex((prev) => prev + 1);
       }
     },
     [currentIndex]

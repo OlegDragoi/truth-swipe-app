@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, XCircle, X } from "lucide-react";
+import { XCircle, X } from "lucide-react";
 
 interface ExplanationModalProps {
   open: boolean;
@@ -34,14 +34,10 @@ const ExplanationModal = ({ open, correct, explanation, storedAnswer, onClose }:
             </button>
 
             <div className="flex flex-col items-center text-center gap-4">
-              {correct ? (
-                <CheckCircle className="h-16 w-16 text-truth" />
-              ) : (
-                <XCircle className="h-16 w-16 text-false-color" />
-              )}
+              <XCircle className="h-16 w-16 text-false-color" />
 
               <h3 className="font-display text-xl font-bold text-foreground">
-                {correct ? "Верно!" : "Неверно!"}
+                Неверно!
               </h3>
 
               <p className="text-sm text-muted-foreground">
@@ -51,11 +47,9 @@ const ExplanationModal = ({ open, correct, explanation, storedAnswer, onClose }:
                 </span>
               </p>
 
-              {!correct && (
-                <p className="text-sm text-secondary-foreground leading-relaxed">
-                  {explanation}
-                </p>
-              )}
+              <p className="text-sm text-secondary-foreground leading-relaxed">
+                {explanation}
+              </p>
 
               <button
                 onClick={onClose}
