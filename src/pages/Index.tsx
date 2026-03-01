@@ -6,6 +6,7 @@ import ExplanationModal from "@/components/ExplanationModal";
 import { dummyNews } from "@/data/dummyNews";
 
 const Index = () => {
+    const [loginAnim, setLoginAnim] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [modal, setModal] = useState<{
     open: boolean;
@@ -58,6 +59,17 @@ const Index = () => {
           <span className="text-red-500">Fake</span>
           <span className="text-green-500">Matcher</span>
         </h1>
+        <button
+          className={`ml-auto flex items-center justify-center rounded-full p-2 transition-all outline-none ring-0 focus:outline-none focus:ring-0 active:outline-none active:ring-0${loginAnim ? ' shake-blink' : ''}`}
+          type="button"
+          onClick={() => {
+            setLoginAnim(false);
+            setTimeout(() => setLoginAnim(true), 10);
+            setTimeout(() => setLoginAnim(false), 1010);
+          }}
+        >
+          <img src="src/assets/login.png" alt="Login" className="w-10 h-10" />
+        </button>
         {/*<div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
           <span className="text-truth">{stats.correct}</span>
           <span>/</span>
