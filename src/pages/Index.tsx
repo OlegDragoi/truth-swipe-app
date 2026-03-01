@@ -128,7 +128,7 @@ const Index = () => {
           </span>
           <span className="flex items-center gap-1 text-lg font-display font-bold">
             <span style={{ fontSize: "1.25rem" }}>👑</span>
-            <span className="text-muted-foreground">{bestStreak}</span>
+            <span className="text-foreground">{bestStreak}</span>
           </span>
         </div>
 
