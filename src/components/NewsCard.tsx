@@ -6,11 +6,12 @@ interface NewsCardProps {
   article: NewsArticle;
   onSwipe: (direction: "left" | "right") => void;
   isTop: boolean;
+  exitDirection?: "left" | "right" | null;
 }
 
 const SWIPE_THRESHOLD = 120;
 
-const NewsCard = ({ article, onSwipe, isTop }: NewsCardProps) => {
+const NewsCard = ({ article, onSwipe, isTop, exitDirection }: NewsCardProps) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-300, 0, 300], [-18, 0, 18]);
   const trueOpacity = useTransform(x, [0, 100], [0, 1]);
@@ -24,6 +25,8 @@ const NewsCard = ({ article, onSwipe, isTop }: NewsCardProps) => {
     }
   };
 
+  const exitX = exitDirection === "right" ? 400 : exitDirection === "left" ? -400 : (x.get() > 0 ? 400 : -400);
+
   return (
     <motion.div
       className="absolute w-full cursor-grab active:cursor-grabbing"
@@ -34,7 +37,7 @@ const NewsCard = ({ article, onSwipe, isTop }: NewsCardProps) => {
       onDragEnd={handleDragEnd}
       animate={isTop ? {} : { scale: 0.95, y: 16 }}
       exit={{ 
-        x: x.get() > 0 ? 400 : -400, 
+        x: exitX, 
         opacity: 0, 
         transition: { duration: 0.3 } 
       }}
