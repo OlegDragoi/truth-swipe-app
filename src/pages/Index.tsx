@@ -57,16 +57,17 @@ const Index = () => {
         <h1 className="font-display text-2xl font-bold text-foreground tracking-tight">
           НовостиЧек
         </h1>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+        {/*<div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
           <span className="text-truth">{stats.correct}</span>
           <span>/</span>
           <span>{stats.total}</span>
         </div>
+        */}
       </header>
 
       {/* Card area */}
       <div className="relative flex-1 w-full max-w-md px-6 flex items-center justify-center">
-        {isFinished ? (
+        {isFinished ? (<div>{/*
           <div className="text-center space-y-4">
             <h2 className="font-display text-3xl font-bold text-foreground">
               Готово! 🎉
@@ -84,6 +85,7 @@ const Index = () => {
               Начать заново
             </button>
           </div>
+          */}</div>
         ) : (
           <div className="relative w-full" style={{ height: "70vh", maxHeight: 600 }}>
             <AnimatePresence>
@@ -101,6 +103,7 @@ const Index = () => {
       </div>
 
       {/* Buttons */}
+      {/*
       {!isFinished && (
         <div className="w-full max-w-md px-6 pb-8 pt-4 flex items-center justify-center gap-8">
           <button
@@ -120,6 +123,7 @@ const Index = () => {
           </button>
         </div>
       )}
+      */}
 
       <ExplanationModal
         open={modal.open}
