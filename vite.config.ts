@@ -11,6 +11,14 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    allowedHosts: [
+      ".ngrok-free.dev",
+      "widish-fiona-overtheatrically.ngrok-free.dev"
+    ],
+    headers: {
+      "ngrok-skip-browser-warning": "true",
+      "User-Agent": "custom-dev-client",
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
