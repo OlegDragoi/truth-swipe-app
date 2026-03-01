@@ -55,7 +55,8 @@ const Index = () => {
       {/* Header */}
       <header className="w-full max-w-md px-6 pt-8 pb-4 flex items-center justify-between">
         <h1 className="font-display text-2xl font-bold text-foreground tracking-tight">
-          НовостиЧек
+          <span className="text-red-500">Fake</span>
+          <span className="text-green-500">Matcher</span>
         </h1>
         {/*<div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
           <span className="text-truth">{stats.correct}</span>
